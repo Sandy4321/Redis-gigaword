@@ -9,7 +9,7 @@ import gzip
 
 class Project:
 	def __init__(self):
-		self.r = redis.Redis(port=6479,host='206.12.16.166',db=0)
+		self.r = redis.Redis(port=6479,host='ip',db=0)
 		self.map = makeDict(sys.argv[3])
 		self.outputPath = sys.argv[2]
 		self.input = sys.argv[1]
