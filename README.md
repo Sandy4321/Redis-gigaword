@@ -32,9 +32,13 @@ abacus	1
 abandon	32
 
 Word followed by its count. In a language model, it would be different that the counts would be replaced by _backoff_ values. Say, you want to write this file to redis. You can use the script 
+
 <pre>
 python WritingCorpus.py filename
 </pre>
+
+There are more details, with more analysis, and results, in http://bit.ly/10WI73s 
+
 
 
  
