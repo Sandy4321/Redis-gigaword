@@ -18,22 +18,23 @@ r = redis.Redis(port=6279,host='localhost',db=0)
 pipe = r.pipeline(transaction=True)
 i = 0
 MAX = 10000
-for line in gzip.open(sys.argv[1],'rb'):
-	if('\\' not in line and '=' not in line):
-		try:	
-			parts = line.split('\t')
-		
-		
-			key = parts[1].rstrip('\n')
-			value = parts[0]
-			if(i<MAX):
-				i=i+1
-				pipe.set(key,value)
-			else:
-				i=0
-				pipe.set(key,value)
-				pipe.execute()
-				i=i+1
-		except:
-			print line
+with os.popen('zcat ' + sys.argv[1]) as gigaword:
+	for line in gigaword:
+		if('\\' not in line and '=' not in line):
+			try:	
+				parts = line.split('\t')
+			
+			
+				key = parts[1].rstrip('\n')
+				value = parts[0]
+				if(i<MAX):
+					i=i+1
+					pipe.set(key,value)
+				else:
+					i=0
+					pipe.set(key,value)
+					pipe.execute()
+					i=i+1
+			except:
+				print line
 print time.time() - startTime, 'seconds '
