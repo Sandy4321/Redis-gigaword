@@ -27,12 +27,12 @@ with os.popen('zcat ' + sys.argv[1]) as arpa_file:
 				key = parts[1].rstrip('\n')
 				value = parts[0]
 				pipe.set(key, value)
-				if(i<MAX):
-					i=i+1
+				if i<MAX:
+					i += 1
 				else:
-					i=0
+					i = 0
 					pipe.execute()
-					i=i+1
+					i += 1
 			except:
 				print line
 print time.time() - startTime, 'seconds '
