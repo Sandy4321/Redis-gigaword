@@ -9,7 +9,7 @@ import sys
 import os
 import redis
 import time
-if(len(sys.argv)<2):
+if len(sys.argv) < 2:
 	print 'python name.py inputfile'
 	sys.exit()
 
