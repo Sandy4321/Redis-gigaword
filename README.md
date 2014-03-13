@@ -3,13 +3,13 @@ Redis-gigaword
 
 Redis code used to do TrueCasing  using a 5-gram Language Model . Language Model generated using Gigaword corpus.
 
-Truecasing is the process of restoring case for a sentence. For instance, a sentence in English, say, __"it is sunny outside in vancouver"__ will be restored to, __"It is sunny outside in Vancouver"__. 
+Truecasing is the process of restoring case for a sentence. For instance, a sentence in English, say, __"it is SUNny outside in vancouver"__ will be restored to, __"It is sunny outside in Vancouver"__. 
 
-If you are thinking, will "VaNcOUvER" change to "Vancouver", you bet it will ! 
+If you are thinking, will "VaNcOUvER" change to "Vancouver", you bet it will! 
 
 **So, what is the point of this project ?**
 
-Well, truecasing is one of the many tasks in Natural language processing that uses a language model. A language model, in simple terms, is just a gigantic hash table. But, the aim of this project was to see if distributing this gigantic table among various instances balanced out the load and made the process faster, end-to-end. How did we find that ? 
+Well, truecasing is one of the many tasks in Natural language processing that uses a language model. A language model, in simple terms, is just a gigantic hash table. But, the aim of this project was to see if distributing this gigantic table among various instances balanced out the load and made the process faster, end-to-end. How did we find that? 
 
 Well, we used Redis. 
 
